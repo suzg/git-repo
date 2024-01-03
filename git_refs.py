@@ -105,7 +105,7 @@ class GitRefs:
     def _ReadPackedRefs(self):
         path = os.path.join(self._gitdir, "packed-refs")
         try:
-            fd = open(path)
+            fd = open(path, encoding="utf-8", errors="backslashreplace")
             mtime = os.path.getmtime(path)
         except OSError:
             return
